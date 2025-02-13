@@ -1,4 +1,9 @@
 import discord
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
+token = os.getenv('DISCORD_TOKEN')
 
 # 필요한 인텐트만 명시 (메시지 읽기만 필요할 경우)
 intents = discord.Intents.default()
@@ -19,4 +24,4 @@ async def on_message(message):
     if message.content.lower() == "print":
         await message.channel.send("HelloWorld!")
 
-client.run("MTMzOTU4NDY2Mjg5NjY0MDAxMA.GUecAC.jh8T2TJEqRSGEaTJVNOKxDSOlGiSbsPrJlMSaY")
+client.run(token)
